@@ -11,7 +11,6 @@ function limpiar() {
 	document.getElementById('pantalla').value = '';
 }
 
-// Función para añadir números y operaciones a la pantalla
 function setValue(valor) {
 	// Si hay un error en la pantalla y se presiona un número, se borra el error y se escribe el número
 	if (document.getElementById('pantalla').value == 'ERROR' && /[0-9]/.test(valor)) {
@@ -37,7 +36,7 @@ function setValue(valor) {
 
 	// Si se presiona un número después de haber calculado una operación y después haber borrado el resultado, se escribe el número
 	if (op == 'no' && /[0-9]/.test(valor)) {
-		document.getElementById('pantalla').value = valor;
+		document.getElementById('pantalla').value += valor;
 		return;
 	}
 
@@ -65,6 +64,7 @@ function setValue(valor) {
 		document.getElementById('pantalla').value += valor;
 	}
 }
+
 
 
 function calcular() {
