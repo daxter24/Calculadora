@@ -13,58 +13,9 @@ function limpiar() {
 
 // Función para añadir números y operaciones a la pantalla
 function setValue(valor) {
-	// Si hay un error en la pantalla y se presiona un número, se borra el error y se escribe el número
-	if (document.getElementById('pantalla').value == 'ERROR' && /[0-9]/.test(valor)) {
-		document.getElementById('pantalla').value = valor;
-		return;
-	}
-
-	// Si se presiona un número después de calcular una operación, se borra el resultado anterior
-	if (op == 'calculado' && /[0-9]/.test(valor)) {
-		document.getElementById('pantalla').value = valor;
-		op = 'no';
-		return;
-	}
-
-	// Si se presiona una operación después de calcular una operación, se usa el resultado anterior como primer operando
-	if (op == 'calculado' && /[\+\-\*\/]/.test(valor)) {
-		document.getElementById('pantalla').value = resultado.toString() + valor;
-		ni = resultado;
-		op = valor;
-		coma = 0;
-		return;
-	}
-
-	// Si se presiona un número después de haber calculado una operación y después haber borrado el resultado, se escribe el número
-	if (op == 'no' && /[0-9]/.test(valor)) {
-		document.getElementById('pantalla').value += valor;
-		return;
-	}
-
-	// Si se presiona una operación después de haber calculado una operación y después haber borrado el resultado, se borra el resultado y se escribe la operación
-	if (op == 'no' && /[\+\-\*\/]/.test(valor)) {
-		document.getElementById('pantalla').value = '';
-		op = valor;
-		return;
-	}
-
-	// Si se presiona una coma después de haber calculado una operación y después haber borrado el resultado, se borra el resultado y se escribe "0,"
-	if (op == 'no' && valor == '.') {
-		document.getElementById('pantalla').value = '0,';
-		coma = 1;
-		return;
-	}
-
-	// Si se presiona una coma después de haber escrito un número, se escribe la coma si no se ha escrito ya
-	if (valor == '.') {
-		if (coma == 0) {
-			document.getElementById('pantalla').value += valor;
-			coma = 1;
-		}
-	} else {
-		document.getElementById('pantalla').value += valor;
-	}
+	document.getElementById('pantalla').value += valor;
 }
+
 
 
 
