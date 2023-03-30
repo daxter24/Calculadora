@@ -1,10 +1,3 @@
-x="0"; //número en pantalla
-xi=1; //iniciar número en pantalla: 1=si; 0=no;
-coma=0; //estado coma decimal 0=no, 1=si;
-ni=0; //número oculto o en espera.
-op="no"; //operación en curso; "no" =  sin operación.
-
-
 
 // Función para borrar el contenido de la pantalla
 function limpiar() {
